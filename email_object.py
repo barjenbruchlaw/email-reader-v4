@@ -1,4 +1,4 @@
-class EmailObject_MO:
+class EmailObject:
     def __init__(self, email_dict):
         self.email_dict = email_dict
         self.datetime = email_dict['datetime']
