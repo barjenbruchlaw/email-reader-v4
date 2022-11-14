@@ -2,10 +2,7 @@ from googleapiclient.discovery import build
 import pprint
 import email_object
 from email_auth import email_creds
-from emailparser_MO import emailparser
-
-
-SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
+from emailparser import emailparserMO, emailparserKS, emailparserJOCO
 
 EmailObject = email_object.EmailObject
 
@@ -16,7 +13,7 @@ def getEmails(index):
     service = build('gmail', 'v1', credentials=creds)
 
     result = service.users().messages().list(userId='me', labelIds=['Label_1031364781613739106'],
-                                             maxResults=60).execute()
+                                             maxResults=100).execute()
 
     messageId = result['messages'][index]['id']
 
@@ -34,7 +31,11 @@ def getEmails(index):
             subject = header['value']
 
     if sender == 'Missouri Courts eFiling System <mocourts.efiling@courts.mo.gov>':
-        email_dict = emailparser(datetime,sender,subject,payload)
+        email_dict = emailparserMO(datetime,sender,subject,payload)
+    elif sender == '<ks_efile_noreply@kscourts.org>':
+        email_dict = emailparserKS(datetime,sender,subject,payload)
+    elif sender == 'jococourts@jocogov.org':
+        email_dict = emailparserJOCO(datetime, sender, subject, payload)
     else:
         email_dict = {
             'datetime': datetime,
@@ -48,6 +49,6 @@ def getEmails(index):
 
     return email_dict
 
-new_email = EmailObject(getEmails(59))
+new_email = EmailObject(getEmails(77))
 
 pprint.pprint(vars(new_email))

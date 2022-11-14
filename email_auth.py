@@ -3,6 +3,7 @@ from google.auth.transport.requests import Request
 import pickle
 import os.path
 
+SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
 def email_creds():
 
