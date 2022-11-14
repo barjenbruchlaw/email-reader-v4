@@ -1,6 +1,7 @@
 class EmailObject:
     def __init__(self, email_dict):
         self.email_dict = email_dict
+        self.message_id = email_dict['message_id']
         self.datetime = email_dict['datetime']
         self.sender = email_dict['sender']
         self.ef_number = email_dict['ef_number']

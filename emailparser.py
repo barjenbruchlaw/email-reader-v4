@@ -1,6 +1,6 @@
 import base64
 
-def emailparserMO(datetime, sender, subject, payload):
+def emailparserMO(messageId, datetime, sender, subject, payload):
 
     data = payload['parts'][0]['parts'][0]['parts'][0]['body']['data']
     data = data.replace("-", "+").replace("_", "/")
@@ -28,6 +28,7 @@ def emailparserMO(datetime, sender, subject, payload):
     address = defendant_info[address_start:address_end]
 
     return {
+        'message_id': messageId,
         'datetime': datetime,
         'sender': sender,
         'subject': subject,
@@ -37,7 +38,7 @@ def emailparserMO(datetime, sender, subject, payload):
         'address': address,
     }
 
-def emailparserKS(datetime, sender, subject, payload):
+def emailparserKS(messageId, datetime, sender, subject, payload):
     data = payload['body']['data']
     data = data.replace("-", "+").replace("_", "/")
     decoded_data = base64.b64decode(data)
@@ -47,6 +48,7 @@ def emailparserKS(datetime, sender, subject, payload):
     ef_number = decoded_data_string[ef_location+14:ef_location+22]
 
     return {
+        'message_id': messageId,
         'datetime': datetime,
         'sender': sender,
         'subject': subject,
@@ -56,7 +58,7 @@ def emailparserKS(datetime, sender, subject, payload):
         'address': '',
     }
 
-def emailparserJOCO(datetime, sender, subject, payload):
+def emailparserJOCO(messageId, datetime, sender, subject, payload):
 
     data = payload['body']['data']
     data = data.replace("-", "+").replace("_", "/")
@@ -77,6 +79,7 @@ def emailparserJOCO(datetime, sender, subject, payload):
     resident_1_name = decoded_data_string[resident_1_name_start:resident_1_name_end]
 
     return {
+        'message_id': messageId,
         'datetime': datetime,
         'sender': sender,
         'subject': subject,

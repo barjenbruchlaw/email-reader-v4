@@ -31,13 +31,14 @@ def getEmails(index):
             subject = header['value']
 
     if sender == 'Missouri Courts eFiling System <mocourts.efiling@courts.mo.gov>':
-        email_dict = emailparserMO(datetime,sender,subject,payload)
+        email_dict = emailparserMO(messageId,datetime,sender,subject,payload)
     elif sender == '<ks_efile_noreply@kscourts.org>':
-        email_dict = emailparserKS(datetime,sender,subject,payload)
+        email_dict = emailparserKS(messageId,datetime,sender,subject,payload)
     elif sender == 'jococourts@jocogov.org':
-        email_dict = emailparserJOCO(datetime, sender, subject, payload)
+        email_dict = emailparserJOCO(messageId,datetime, sender, subject, payload)
     else:
         email_dict = {
+            'message_id': messageId,
             'datetime': datetime,
             'sender': sender,
             'subject': subject,
@@ -49,6 +50,6 @@ def getEmails(index):
 
     return email_dict
 
-new_email = EmailObject(getEmails(77))
+new_email = EmailObject(getEmails(54))
 
 pprint.pprint(vars(new_email))
