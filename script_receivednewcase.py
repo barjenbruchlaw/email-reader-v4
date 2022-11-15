@@ -44,11 +44,16 @@ def getEmails(index):
             'message_id': messageId,
             'datetime': datetime,
             'sender': sender,
+            'county': '',
             'subject': subject,
             'ef_number': '',
             'plaintiff_name': '',
             'resident_1_name': '',
             'address': '',
+            'case_number': '',
+            'judge': '',
+             'hearing_date': '',
+             'hearing_time': '',
         }
 
     return email_dict

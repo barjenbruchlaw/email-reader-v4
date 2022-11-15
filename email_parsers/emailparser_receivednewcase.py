@@ -32,10 +32,15 @@ def emailparserMO(messageId, datetime, sender, subject, payload):
         'datetime': datetime,
         'sender': sender,
         'subject': subject,
+        'county': '',
         'ef_number': ef_number,
         'plaintiff_name': plaintiff_name,
         'resident_1_name': resident_1_name,
         'address': address,
+        'case_number': '',
+        'judge': '',
+        'hearing_date': '',
+        'hearing_time': '',
     }
 
 def emailparserKS(messageId, datetime, sender, subject, payload):
@@ -52,10 +57,15 @@ def emailparserKS(messageId, datetime, sender, subject, payload):
         'datetime': datetime,
         'sender': sender,
         'subject': subject,
+        'county': '',
         'ef_number': ef_number,
         'plaintiff_name': '',
         'resident_1_name': '',
         'address': '',
+        'case_number': '',
+        'judge': '',
+        'hearing_date': '',
+        'hearing_time': '',
     }
 
 def emailparserJOCO(messageId, datetime, sender, subject, payload):
@@ -83,8 +93,13 @@ def emailparserJOCO(messageId, datetime, sender, subject, payload):
         'datetime': datetime,
         'sender': sender,
         'subject': subject,
+        'county': '',
         'ef_number': ef_number,
         'plaintiff_name': plaintiff_name,
         'resident_1_name': resident_1_name,
         'address': '',
+        'case_number': '',
+        'judge': '',
+        'hearing_date': '',
+        'hearing_time': '',
     }
