@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="56f10290-0b2a-4d43-9878-6fd1d2c108de" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/email-reader-v4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/email-reader-v4.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email_object.py" beforeDir="false" afterPath="$PROJECT_DIR$/email_object.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emailparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/emailparser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/email_parsers/emailparser_receivednewcase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/script_receivednewcase.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +36,11 @@
     &quot;last_opened_file_path&quot;: &quot;F:/CodingZone/email-reader-v4&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\CodingZone\email-reader-v4\email-parsers" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

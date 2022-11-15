@@ -1,8 +1,11 @@
 from googleapiclient.discovery import build
 import pprint
 import email_object
+import sys
 from email_auth import email_creds
-from emailparser import emailparserMO, emailparserKS, emailparserJOCO
+from email_parsers.emailparser_receivednewcase import emailparserMO, emailparserKS, emailparserJOCO
+
+sys.path.append('./email_parsers')
 
 EmailObject = email_object.EmailObject
 
@@ -50,6 +53,6 @@ def getEmails(index):
 
     return email_dict
 
-new_email = EmailObject(getEmails(54))
+new_email = EmailObject(getEmails(15))
 
 pprint.pprint(vars(new_email))
