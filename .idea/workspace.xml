@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="56f10290-0b2a-4d43-9878-6fd1d2c108de" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email_parsers/emailparser_addnewcase.py" beforeDir="false" afterPath="$PROJECT_DIR$/email_parsers/emailparser_addnewcase.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script_addnewcase.py" beforeDir="false" afterPath="$PROJECT_DIR$/script_addnewcase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script_receivednewcase.py" beforeDir="false" afterPath="$PROJECT_DIR$/script_receivednewcase.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,15 +28,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/brianb/CodingZone/email-reader-v4"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/brianb/CodingZone/email-reader-v4&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\CodingZone\email-reader-v4" />
       <recent name="G:\CodingZone\email-reader-v4\email-parsers" />
     </key>
   </component>

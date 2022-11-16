@@ -1,5 +1,4 @@
 from googleapiclient.discovery import build
-import pprint
 import email_object
 import sys
 from email_auth import email_creds
@@ -9,55 +8,60 @@ sys.path.append('./email_parsers')
 
 EmailObject = email_object.EmailObject
 
-def getEmails(index):
+def getEmails():
 
     creds = email_creds()
 
     service = build('gmail', 'v1', credentials=creds)
 
     result = service.users().messages().list(userId='me', labelIds=['Label_1031364781613739106'],
-                                             maxResults=100).execute()
+                                             maxResults=200).execute()
 
-    messageId = result['messages'][index]['id']
+    messageId_list = list()
 
-    message = service.users().messages().get(userId='me', id=messageId).execute()
+    for msg in result['messages']:
+        messageId_list.append(msg['id'])
 
-    payload = message['payload']
-    headers = payload['headers']
+    message_digest = list()
 
-    for header in headers:
-        if header['name'] == 'Date':
-            datetime = header['value']
-        if header['name'] == 'From':
-            sender = header['value']
-        if header['name'] == 'Subject':
-            subject = header['value']
+    for messageId in messageId_list:
 
-    if sender == 'Missouri Courts eFiling System <mocourts.efiling@courts.mo.gov>':
-        email_dict = emailparserMO(messageId,datetime,sender,subject,payload)
-    elif sender == '<ks_efile_noreply@kscourts.org>':
-        email_dict = emailparserKS(messageId,datetime,sender,subject,payload)
-    elif sender == 'jococourts@jocogov.org':
-        email_dict = emailparserJOCO(messageId,datetime, sender, subject, payload)
-    else:
-        email_dict = {
-            'message_id': messageId,
-            'datetime': datetime,
-            'sender': sender,
-            'county': '',
-            'subject': subject,
-            'ef_number': '',
-            'plaintiff_name': '',
-            'resident_1_name': '',
-            'address': '',
-            'case_number': '',
-            'judge': '',
-             'hearing_date': '',
-             'hearing_time': '',
-        }
+        message = service.users().messages().get(userId='me', id=messageId).execute()
 
-    return email_dict
+        payload = message['payload']
+        headers = payload['headers']
 
-new_email = EmailObject(getEmails(15))
+        for header in headers:
+            if header['name'] == 'Date':
+                datetime = header['value']
+            if header['name'] == 'From':
+                sender = header['value']
+            if header['name'] == 'Subject':
+                subject = header['value']
 
-pprint.pprint(vars(new_email))
+        if sender == 'Missouri Courts eFiling System <mocourts.efiling@courts.mo.gov>':
+            email_dict = emailparserMO(messageId,datetime,sender,subject,payload)
+        elif sender == '<ks_efile_noreply@kscourts.org>':
+            email_dict = emailparserKS(messageId,datetime,sender,subject,payload)
+        elif sender == 'jococourts@jocogov.org':
+            email_dict = emailparserJOCO(messageId,datetime, sender, subject, payload)
+        else:
+            email_dict = {
+                'message_id': messageId,
+                'datetime': datetime,
+                'sender': sender,
+                'county': '',
+                'subject': subject,
+                'ef_number': '',
+                'plaintiff_name': '',
+                'resident_1_name': '',
+                'address': '',
+                'case_number': '',
+                'judge': '',
+                 'hearing_date': '',
+                 'hearing_time': '',
+            }
+
+        message_digest.append(email_dict)
+
+    return message_digest
