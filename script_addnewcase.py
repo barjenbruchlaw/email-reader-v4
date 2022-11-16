@@ -3,7 +3,7 @@ import pprint
 import email_object
 import sys
 from email_auth import email_creds
-from email_parsers.emailparser_addnewcase import emailparserMO
+from email_parsers.emailparser_addnewcase import emailparserMO,emailparserKS,emailparserJOCO
 
 sys.path.append('./email_parsers')
 
@@ -35,10 +35,10 @@ def getEmails(index):
 
     if sender == 'Missouri Courts eFiling System <mocourts.efiling@courts.mo.gov>':
         email_dict = emailparserMO(messageId,datetime,sender,subject,payload)
-    # elif sender == '<ks_efile_noreply@kscourts.org>':
-    #     email_dict = emailparserKS(messageId,datetime,sender,subject,payload)
-    # elif sender == 'jococourts@jocogov.org':
-    #     email_dict = emailparserJOCO(messageId,datetime, sender, subject, payload)
+    elif sender == '<ks_efile_noreply@kscourts.org>':
+        email_dict = emailparserKS(messageId,datetime,sender,subject,payload)
+    elif sender == 'jococourts@jocogov.org':
+        email_dict = emailparserJOCO(messageId,datetime, sender, subject, payload)
     else:
         email_dict = {
             'message_id': messageId,
@@ -58,6 +58,6 @@ def getEmails(index):
 
     return email_dict
 
-new_email = EmailObject(getEmails(15))
+new_email = EmailObject(getEmails(63))
 
 pprint.pprint(vars(new_email))
